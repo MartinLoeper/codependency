@@ -283,7 +283,9 @@ var middlewares = {};
  * @param {string}   [options.name]        A unique name to use for this middleware.
  *                                         Default value is the "name" field from package.json.
  * @param {boolean}  [options.strictCheck] Check for `package.json` in base module only
-                                           Default value: true
+										   Default value: true
+ * @param {Object}  [options.pkg] 		   The contents of the package.json file of the baseModule
+ * @param {Object}  [options.parentPkg]    The contents of the package.json file of the parentModule								   										
  * @returns {function}                     The generated require function.
  */
 
@@ -292,7 +294,7 @@ exports.register = function (baseModule, options) {
 
 	// find the nearest package.json
 
-	var pkg = exports.findPackage(baseModule, options.strictCheck !== false);
+	var pkg = (!options.pkg) ? exports.findPackage(baseModule, options.strictCheck !== false) : options.pkg;
 
 	// decide on a name for this middleware
 
@@ -318,7 +320,7 @@ exports.register = function (baseModule, options) {
 
 	// find the package.json belonging to the application
 
-	var basePkg = exports.findPackage(baseModule, false);
+	var basePkg = (!options.parentPkg) ? exports.findPackage(baseModule, false) : options.parentPkg;
 
 	// create and return a requirePeer function
 
