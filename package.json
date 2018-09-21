@@ -11,7 +11,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "Optional peer dependencies",
   "main": "index.js",
   "dependencies": {
