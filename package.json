@@ -1,5 +1,5 @@
 {
-  "name": "codependency",
+  "name": "@nesto-software/codependency",
   "keywords": [
     "peer",
     "dependency",
@@ -8,6 +8,9 @@
     "module",
     "semver"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "2.1.0",
   "description": "Optional peer dependencies",
   "main": "index.js",
