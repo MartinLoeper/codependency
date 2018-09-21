@@ -25,5 +25,5 @@ export interface RequirePeerFunction {
     resolve(name: string): DependencyInfo;
 }
 
-export function register(baseModule: NodeModule, options?: {index?: string[], strictCheck?: boolean, name?: string, pkg?: object, parentPkg?: object}): RequirePeerFunction;
+export function register(baseModule: NodeModule, options?: {index?: string[], strictCheck?: boolean, name?: string, pkg?: object, parentPkg?: object, parentModule?: NodeModule}): RequirePeerFunction;
 export function get(middlewareName: string): RequirePeerFunction;

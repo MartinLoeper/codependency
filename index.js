@@ -285,7 +285,8 @@ var middlewares = {};
  * @param {boolean}  [options.strictCheck] Check for `package.json` in base module only
 										   Default value: true
  * @param {Object}  [options.pkg] 		   The contents of the package.json file of the baseModule
- * @param {Object}  [options.parentPkg]    The contents of the package.json file of the parentModule								   										
+ * @param {Object}  [options.parentPkg]    The contents of the package.json file of the parentModule		
+ * @param {Object}  [options.parentModule] The parent module					   										
  * @returns {function}                     The generated require function.
  */
 
@@ -316,7 +317,7 @@ exports.register = function (baseModule, options) {
 
 	// change the baseModule to its own parent, where we'll be requiring from
 
-	baseModule = baseModule.parent;
+	baseModule = (!options.parentModule) ? baseModule.parent: options.parentModule;
 
 	// find the package.json belonging to the application
 
